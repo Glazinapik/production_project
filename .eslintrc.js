@@ -28,6 +28,17 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
         'no-unused-vars': 'warn',
         '@typescript-eslint/ban-ts-ignore': 'off',
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'i18next/no-literal-string': [
+            'error',
+            { markupOnly: true, ignoreAttribute: ['data-test-id', 'to'] },
+        ],
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 }
