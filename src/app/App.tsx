@@ -1,26 +1,26 @@
 import './styles/index.scss'
 
-import { classNames } from 'shared/lib/classNames'
+import { classNames } from 'helpers/classNames/classNames'
 import { useTheme } from 'app/providers/ThemeProvider'
 
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AppRouter } from './providers/router'
 
 export function App() {
     const { t, i18n } = useTranslation()
     const { theme } = useTheme()
-    const onToggleLanguage = () => {
-        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
-    }
+
+    // useEffect(() => {
+    //     throw new Error()
+    // }, [])
 
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar />
-                <button onClick={onToggleLanguage}>{t('перевод')}</button>
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />

@@ -12,11 +12,10 @@ export default {
     rootDir: '../../',
     testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[jt]s?(x)'],
     modulePaths: ['<rootDir>src/'],
-    preset: "ts-jest",
+    preset: 'ts-jest',
     transform: {
-      '^.+\\.ts?$': 'ts-jest'
-    }
-   
+        '^.+\\.ts?$': 'ts-jest',
+    },
 
     // All imported modules in your tests should be mocked automatically
     // automock: false,
